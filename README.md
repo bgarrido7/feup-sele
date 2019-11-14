@@ -9,6 +9,8 @@ All the course's information can be viewed [here](https://sigarra.up.pt/feup/pt/
 ## Project 1
 
 **Asynchronous Communication System** [here](https://github.com/bgarrido7/feup-sele/tree/master/Project%201)
+
+
 Development of an asynchronous communication system composed by
 several nodes (at least 1 master and 2 slaves). Those nodes have the same hardware
 and should be based in the ATmega328P MCU and MAX485 transceivers. 
