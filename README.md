@@ -15,6 +15,11 @@ Development of an asynchronous communication system composed by
 several nodes (at least 1 master and 2 slaves). Those nodes have the same hardware
 and should be based in the ATmega328P MCU and MAX485 transceivers. 
 
+ **tools used**
+- Schematic and PCB design: EasyEDA - https://easyeda.com/
+- IDE: PlatformIO + VSCode - https://platformio.org/install/ide?install=vscode
+- Git + GitHub: https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
+
 
 ## Authors
 
