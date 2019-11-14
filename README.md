@@ -16,9 +16,6 @@ several nodes (at least 1 master and 2 slaves). Those nodes have the same hardwa
 and should be based in the ATmega328P MCU and MAX485 transceivers. 
 
 
-## Final Project
-
-
 ## Authors
 
 * **Beatriz Garrido** - [bgarrido7](https://github.com/bgarrido7)
