@@ -1,6 +1,6 @@
 # feup-sele
 
-This repository contains all the Lab Projects done in the course Sistemas Eletrónicos, a 5th year course from the Master's Degree in Electrical and Computers Engineering @ **FEUP**
+This repository contains the Lab Projects done in the course Sistemas Eletrónicos, a 5th year course from the Master's Degree in Electrical and Computers Engineering @ **FEUP**
 
 ## Course Information
 
