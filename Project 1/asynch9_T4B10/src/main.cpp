@@ -4,8 +4,6 @@
 #define SLAVE1_ADDR 13
 #define SLAVE2_ADDR 14
 
-uint8_t ADDR;
-
 #define LED_PIN   13
 #define ADDR3_PIN 11
 #define ADDR2_PIN 10
@@ -17,7 +15,7 @@ uint8_t ADDR;
 
 
 int master=0;
-int self_adress;
+uint8_t self_adress;
 
 void asynch9_init(long BAUD) {
   UBRR0L = (uint8_t) (16000000 / (16*BAUD) -1);
@@ -93,12 +91,10 @@ void setup() {
     master = 1;
     UCSR0B|=(1<<TXEN0);
   }
-  else
+  else{
     UCSR0B|=(1<<RXEN0); 
- 
- if(0==MASTER_ADDR)
     UCSR0A |= (1 << MPCM0);
-
+}
   UCSR0C &= 0b00111111;
     
 }
@@ -130,7 +126,7 @@ void loop() {
         digitalWrite(LED_PIN, LOW);
         UCSR0A |= (1 << MPCM0);
       }
-      
+
     }
   }
 
