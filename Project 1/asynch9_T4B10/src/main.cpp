@@ -78,7 +78,7 @@ void setup() {
   pinMode( ADDR0_PIN, INPUT_PULLUP);
   pinMode( BUT1_PIN, INPUT_PULLUP);
   pinMode( BUT2_PIN, INPUT_PULLUP);
-  pinMode( WREN_PIN, INPUT_PULLUP);
+  pinMode( WREN_PIN, OUTPUT);
   pinMode(LED_PIN, OUTPUT);
 
   UCSR0C |= (1<<USBS0)|(7<<UCSZ00);
@@ -88,6 +88,7 @@ void setup() {
   self_adress=digitalRead(ADDR0_PIN) + (digitalRead(ADDR3_PIN )>> 3) + (digitalRead(ADDR2_PIN )>> 2) + (digitalRead(ADDR1_PIN )>> 1);
 
   if(MASTER_ADDR==self_adress){
+    digitalWrite(WREN_PIN,HIGH);
     master = 1;
     UCSR0B|=(1<<TXEN0);
   }
