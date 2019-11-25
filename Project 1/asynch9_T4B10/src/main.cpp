@@ -14,7 +14,7 @@
 #define WREN_PIN  2
 
 
-int master=0;
+int master=0, state;
 uint8_t self_adress;
 
 void asynch9_init(long BAUD) {
@@ -81,6 +81,8 @@ void setup() {
   pinMode( WREN_PIN, OUTPUT);
   pinMode(LED_PIN, OUTPUT);
 
+  state=0;
+
   UCSR0B = (1 << UCSZ02);
   UCSR0C |= (1<<USBS0) | (3<<UCSZ00);             
 
@@ -106,18 +108,55 @@ void setup() {
 void loop() {
     
   if(1==master){
-      if(LOW == digitalRead(BUT1_PIN) ){
-          send_addr(SLAVE1_ADDR);
-          send_data(LED_PIN);
-          while(LOW == digitalRead(BUT1_PIN));  //prender aqui o código para nao estar sempre a enviar data e addr, só manda 1x
-          send_data(1);
-      }
-      if(LOW == digitalRead(BUT2_PIN) ){
-          send_addr(SLAVE2_ADDR);
-          send_data(LED_PIN);
-          while(LOW == digitalRead(BUT2_PIN));  //prender aqui o código para nao estar sempre a enviar data e addr, só manda 1x
-          send_data(1);
-      }
+
+    if(0==state &&  LOW == digitalRead(BUT1_PIN)){
+      state=2;
+      send_addr(SLAVE1_ADDR);
+      send_data(LED_PIN);
+    }
+        
+    else if(0==state &&  LOW == digitalRead(BUT2_PIN)){
+      state=1;
+      send_addr(SLAVE2_ADDR);
+      send_data(LED_PIN);
+    }
+    else if(1==state &&  LOW == digitalRead(BUT1_PIN)){
+      state=3;
+      send_addr(SLAVE1_ADDR);
+      send_data(LED_PIN);
+    }
+   else if((1==state) &&  (HIGH == digitalRead(BUT2_PIN))){
+      state=0;
+      send_addr(SLAVE2_ADDR);
+      send_data(1);
+    }
+   else if((2==state) &&  (LOW == digitalRead(BUT2_PIN))){
+      state=3;
+      send_addr(SLAVE2_ADDR);
+      send_data(LED_PIN);
+    }
+
+    else if((2==state) &&  (HIGH == digitalRead(BUT1_PIN))){
+      state=0;
+      send_addr(SLAVE1_ADDR);
+      send_data(1);
+    }
+
+ else if((3==state) &&  (HIGH == digitalRead(BUT1_PIN))){
+      state=1;
+      send_addr(SLAVE1_ADDR);
+      send_data(1);
+    }
+
+
+ else if((3==state) &&  (HIGH == digitalRead(BUT2_PIN))){
+      state=2;
+      send_addr(SLAVE2_ADDR);
+      send_data(1);
+    }
+
+
+
   }
   else { //slave
     uint8_t x = get_data();
