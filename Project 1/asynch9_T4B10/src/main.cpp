@@ -19,7 +19,7 @@ uint8_t self_adress;
 
 void asynch9_init(long BAUD) {
   UBRR0L = (uint8_t) (16000000 / (16*BAUD) -1);
-//  UBRR0H = (uint8_t) (UBRR0L >> 8);
+  UBRR0H = (uint8_t) ( (16000000 / (16*BAUD) -1) >>8 );
 
 }
 
@@ -81,11 +81,14 @@ void setup() {
   pinMode( WREN_PIN, OUTPUT);
   pinMode(LED_PIN, OUTPUT);
 
-  UCSR0C |= (1<<USBS0)|(7<<UCSZ00);
+  UCSR0B = (1 << UCSZ02);
+  UCSR0C |= (1<<USBS0) | (3<<UCSZ00);             
+
+  UCSR0C &= ~(1 << UMSEL00) & ~(1 << UMSEL01) & ~(1 << UPM00) & ~(1 << USBS0);   //parity and stop bit           
 
   asynch9_init(9600);
 
-  self_adress=digitalRead(ADDR0_PIN) + (digitalRead(ADDR3_PIN )>> 3) + (digitalRead(ADDR2_PIN )>> 2) + (digitalRead(ADDR1_PIN )>> 1);
+  self_adress=digitalRead(ADDR0_PIN) + (digitalRead(ADDR3_PIN ) *8) + (digitalRead(ADDR2_PIN ) *4) + (digitalRead(ADDR1_PIN ) *2);
 
   if(MASTER_ADDR==self_adress){
     digitalWrite(WREN_PIN,HIGH);
