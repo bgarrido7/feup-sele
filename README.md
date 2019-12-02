@@ -12,11 +12,6 @@ All the course's information can be viewed [here](https://sigarra.up.pt/feup/pt/
 
 Development of an asynchronous communication system composed by several nodes (at least 1 master and 2 slaves). Those nodes have the same hardware and should be based in the ATmega328P MCU and MAX485 transceivers. 
 
- **Tools used:**
-- Schematic and PCB design: EasyEDA - https://easyeda.com/
-- IDE: PlatformIO + VSCode - https://platformio.org/install/ide?install=vscode
-- Git + GitHub: https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
-
 the code for this project can be viewed [here](https://github.com/bgarrido7/feup-sele/blob/master/Project%201/asynch9_T4B10/src/main.cpp)
 
 **PCB Layout**
