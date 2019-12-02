@@ -15,7 +15,7 @@ Development of an asynchronous communication system composed by several nodes (a
 
 **PCB Layout**
 
-<img src=https://github.com/bgarrido7/feup-sele/blob/master/Project%201/asynch9_T4B10/easyeda/PCB_final-try-pcb_20191126184213.png width="300">
+<img src=https://github.com/bgarrido7/feup-sele/blob/master/Project%201/asynch9_T4B10/easyeda/PCB_final-try-pcb_20191126184213.png width="500">
   
 **Schematic**
 
