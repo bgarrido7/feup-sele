@@ -18,6 +18,15 @@ Development of an asynchronous communication system composed by several nodes (a
 - Git + GitHub: https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
 
+## Final Project 
+
+all the work done can be viewed [here](https://github.com/bgarrido7/feup-sele/tree/master/Final%20Project)
+
+this project is composed by two different tasks:
+  - **Task 1** – Control remotely a ChipKIT Uno32 board just using its MCU JTAG port
+  - **Task 2** – Develop a system that uses an SPI or I2C device
+  
+  
 ## Authors
 
 * **Beatriz Garrido** - [bgarrido7](https://github.com/bgarrido7)
