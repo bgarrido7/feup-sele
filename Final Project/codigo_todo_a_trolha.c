@@ -1,15 +1,10 @@
+  
 #include <Arduino.h>
 
 #define TMS 8
 #define TDI 10
 #define TDO  11
 #define TCK  9
-
-void asynch9_init(long BAUD) {
-  UBRR0L = (uint8_t) (16000000 / (16*BAUD) -1);
-  UBRR0H = (uint8_t) ( (16000000 / (16*BAUD) -1) >>8 );
-
-}
 
 int read_TDO(int n){
  int TDO_buff=0;
@@ -31,17 +26,7 @@ void setup() {
   pinMode( TDI, OUTPUT);
   pinMode( TCK, OUTPUT);
 
-  state=0;
-
-  UCSR0C |= (1<<USBS0) | (3<<UCSZ00);             
-
-  UCSR0C &= ~(1 << UMSEL00) & ~(1 << UMSEL01) & ~(1 << UPM00) & ~(1 << USBS0);   //parity and stop bit           
-
-  asynch9_init(9600);
-
-  UCSR0B|=(1<<RXEN0); 
-
-  UCSR0C &= 0b00111111;
+  Serial.begin(9600);
     
 }
 
@@ -186,5 +171,21 @@ void write_led0(){
 }
 
 void loop() {
-
+  int command;
+  if (Serial.available() > 0) {
+    command = Serial.read();
+    swtich(command){
+      case d:
+        Serial.println(read_IDCODE(), HEX);
+        break;
+      case b:
+        Serial.println(print_button_state);
+        break;
+      case 1:
+        write_led1();
+        break;
+      case 0: 
+        write_led0();
+        break;}
+    }
 }
