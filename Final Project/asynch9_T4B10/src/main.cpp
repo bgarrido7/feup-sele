@@ -60,7 +60,8 @@ int read_TDO(int n){
       }
     TAPclk(TMS0);
     TDO_buff=TDO_buff+(digitalRead(TDO)<<(2*i));
-    for(i=0; i<4; i++) TAPclk(TMS0);
+    TAPclk(TMS0);
+    TAPclk(0);
   return TDO_buff;
 }
 
@@ -72,6 +73,8 @@ void setup() {
   pinMode( TCK, OUTPUT);
 
   Serial.begin(9600);
+  
+  teste_reset();
     
 }
 
@@ -79,7 +82,6 @@ void test_reset(){
     for(i=0; i<5; i++) TAPclk(TMS0);
 }
 int read_IDCODE(){
-  test_reset();
   TAPclk(0);
   TAPclk(TMS0);
   TAPclk(0);
@@ -103,15 +105,13 @@ void shift_IR(){
 }
 
 int print_button_state(){
-  test_reset();
   shift_IR();
   TAPclk(0);
   TAPclk(1);
   TAPclk(0);
   TAPclk(0);
   TAPclk(TMS0);
-  
-  test_reset();
+  TAPclk(TMS0);
 
   shift_DR();
 
@@ -120,13 +120,13 @@ int print_button_state(){
   TAPclk(0);
 
 int result=  read_TDO(1);
-
-  test_reset();
+  TAPclk(TMS0);
+  TAPclk(TMS0);
+  TAPclk(0);
 return  result;
 }
 
 void write_led1(){
-  test_reset();
 
   shift_IR();
 
@@ -135,8 +135,7 @@ void write_led1(){
   TAPclk(1);
   TAPclk(0);
   TAPclk(TMS0);
-
-  test_reset();
+  TAPclk(TMS0);
 
   shift_DR();
 
@@ -147,11 +146,11 @@ void write_led1(){
   TAPclk(1);
   for(i=0;i<17;i++) TAPclk(0);
   TAPclk(TMS0);
-  test_reset();
+  TAPclk(TMS0);
+  TAPclk(0);
 }
 
 void write_led0(){
-  test_reset();
 
   shift_IR();
 
@@ -160,8 +159,7 @@ void write_led0(){
   TAPclk(1);
   TAPclk(0);
   TAPclk(TMS0);
-
-  test_reset();
+  TAPclk(TMS0);
 
   shift_DR();
 
@@ -172,7 +170,8 @@ void write_led0(){
   TAPclk(1);
   for(i=0;i<17;i++) TAPclk(0);
   TAPclk(TMS0);
-  test_reset();
+  TAPclk(TMS0);
+  TAPclk(0);
 }
 
 void loop() {
@@ -185,10 +184,10 @@ void loop() {
       case 'b':
         Serial.println(print_button_state());
         break;
-      case 1:
+      case '1':
         write_led1();
         break;
-      case 0: 
+      case '0': 
         write_led0();
         break;
         }
