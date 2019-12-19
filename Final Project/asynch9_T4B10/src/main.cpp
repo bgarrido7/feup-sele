@@ -128,9 +128,6 @@ int print_button_state(){
   TAPclk(0);
 
 int result=  read_TDO(1);
-  TAPclk(TMS0);
-  TAPclk(TMS0);
-  TAPclk(0);
 return  result;
 }
 
