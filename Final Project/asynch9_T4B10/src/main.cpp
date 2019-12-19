@@ -74,7 +74,7 @@ void setup() {
 
   Serial.begin(9600);
   
-  teste_reset();
+  test_reset();
     
 }
 
