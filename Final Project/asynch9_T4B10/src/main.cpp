@@ -64,7 +64,9 @@ int read_TDO(int n){
     TAPclk(0);
   return TDO_buff;
 }
-
+void test_reset(){
+    for(i=0; i<5; i++) TAPclk(TMS0);
+}
 void setup() {
   
   pinMode( TMS, OUTPUT);
@@ -78,9 +80,14 @@ void setup() {
     
 }
 
-void test_reset(){
-    for(i=0; i<5; i++) TAPclk(TMS0);
+void shift_IR(){
+  TAPclk(0);
+  TAPclk(TMS0);
+  TAPclk(TMS0);
+  TAPclk(0);
+  TAPclk(0);
 }
+
 int read_IDCODE(){
   shift_IR();
   TAPclk(1);
@@ -104,13 +111,6 @@ void shift_DR(){
   TAPclk(0);
 }
 
-void shift_IR(){
-  TAPclk(0);
-  TAPclk(TMS0);
-  TAPclk(TMS0);
-  TAPclk(0);
-  TAPclk(0);
-}
 
 int print_button_state(){
   shift_IR();
