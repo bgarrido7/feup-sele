@@ -82,6 +82,14 @@ void test_reset(){
     for(i=0; i<5; i++) TAPclk(TMS0);
 }
 int read_IDCODE(){
+  shift_IR();
+  TAPclk(1);
+  TAPclk(0);
+  TAPclk(0);
+  TAPclk(0);
+  TAPclk(TMS0);
+  TAPclk(TMS0);
+  
   TAPclk(0);
   TAPclk(TMS0);
   TAPclk(0);
