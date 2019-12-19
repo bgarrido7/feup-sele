@@ -2,8 +2,8 @@
 #include <Arduino.h>
 
 #define TMS 8
-#define TDI 10
-#define TDO  11
+#define TDI 11
+#define TDO  10
 #define TCK  9
 
 #define TMS0 2
