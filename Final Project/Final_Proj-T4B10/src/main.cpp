@@ -17,7 +17,7 @@ void TAPclk(int value){
       digitalWrite(TMS, HIGH);
       digitalWrite(TDO, LOW);
       digitalWrite(TCK, HIGH);
-      delay(20);
+      delay(2);
       digitalWrite(TCK, LOW);
       break;
 
@@ -25,7 +25,7 @@ void TAPclk(int value){
       digitalWrite(TMS, HIGH);
       digitalWrite(TDO, HIGH);
       digitalWrite(TCK, HIGH);
-      delay(20);
+      delay(2);
       digitalWrite(TCK, LOW);
       break;
 
@@ -33,7 +33,7 @@ void TAPclk(int value){
       digitalWrite(TMS, LOW);
       digitalWrite(TDO, LOW);
       digitalWrite(TCK, HIGH);
-      delay(20);
+      delay(2);
       digitalWrite(TCK, LOW);
       break;
 
@@ -41,7 +41,7 @@ void TAPclk(int value){
       digitalWrite(TMS, LOW);
       digitalWrite(TDO, HIGH);
       digitalWrite(TCK, HIGH);
-      delay(20);
+      delay(2);
       digitalWrite(TCK, LOW);
       break;
 
@@ -51,17 +51,18 @@ void TAPclk(int value){
   }
 }
 
-int read_TDI(int n){
- int TDObuff=0;
+uint32_t read_TDI(int n){
+ uint32_t TDObuff=0x00;
     for(i=0; i<(n-1); i++)
       {
         TAPclk(0);
-        TDObuff=TDObuff+(digitalRead(TDI)<<(2*i));
+        TDObuff |= (digitalRead(TDI)<<i);
       }
     TAPclk(TMS0);
-    TDObuff=TDObuff+(digitalRead(TDI)<<(2*i));
+    TDObuff |= (digitalRead(TDI)<<i);
     TAPclk(TMS0);
     TAPclk(0);
+    Serial.println(TDObuff, HEX);
   return TDObuff;
 }
 void test_reset(){
@@ -88,7 +89,7 @@ void shift_IR(){
   TAPclk(0);
 }
 
-int read_IDCODE(){
+uint32_t read_IDCODE(){
   shift_IR();
   TAPclk(1);
   TAPclk(0);
@@ -127,8 +128,8 @@ int print_button_state(){
   TAPclk(0);
   TAPclk(0);
 
-int result=  read_TDI(1);
-return  result;
+return read_TDI(1);
+
 }
 
 void write_led1(){
@@ -184,7 +185,7 @@ void loop() {
     char command = Serial.read();
     switch(command){
       case 'd':
-        Serial.println(read_IDCODE(), BIN);
+        Serial.println(read_IDCODE(), HEX);
         break;
       case 'b':
         Serial.println(print_button_state());
