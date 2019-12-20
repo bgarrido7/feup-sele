@@ -184,7 +184,7 @@ void loop() {
     char command = Serial.read();
     switch(command){
       case 'd':
-        Serial.println(read_IDCODE(), HEX);
+        Serial.println(read_IDCODE(), BIN);
         break;
       case 'b':
         Serial.println(print_button_state());
