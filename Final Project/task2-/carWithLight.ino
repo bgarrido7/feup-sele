@@ -104,17 +104,9 @@ void loop(void)
   sensors_event_t event;
   tsl.getEvent(&event);
  
-  /* Display the results (light is measured in lux) */
-  if (event.light)
-  {
-    Serial.print(event.light); Serial.println(" lux");
-  }
-  else
-  {
-    /* If event.light = 0 lux the sensor is probably saturated
-       and no reliable data could be generated! */
-    Serial.println("Sensor overload");
-  }
+
+ Serial.print(event.light); Serial.println(" lux");
+  
 
    if(event.light > 150){
      analogWrite(enA, 127);
@@ -125,7 +117,6 @@ void loop(void)
   digitalWrite(in2, LOW);
   digitalWrite(in3, HIGH);
   digitalWrite(in4, LOW);
-  delay(1000);
     }
    
 else{
