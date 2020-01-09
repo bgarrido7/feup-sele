@@ -183,9 +183,11 @@ void write_led0(){
 void loop() {
   if (Serial.available() > 0) {
     char command = Serial.read();
+    uint32_t tdo32;
     switch(command){
       case 'd':
-        Serial.println(read_IDCODE(), HEX);
+        tdo32 = read_IDCODE();
+        Serial.println(tdo32, HEX);
         break;
       case 'b':
         Serial.println(print_button_state());
