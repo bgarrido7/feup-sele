@@ -1,3 +1,6 @@
+int lightSensorPin = A0;
+int analogValue = 0;
+
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_TSL2561_U.h>
@@ -100,35 +103,56 @@ void setup(void)
 /**************************************************************************/
 void loop(void) 
 {  
-  /* Get a new sensor event */ 
-  sensors_event_t event;
-  tsl.getEvent(&event);
- 
-
- Serial.print(event.light); Serial.println(" lux");
-  
-
-   if(event.light > 150){
-     analogWrite(enA, 127);
-  analogWrite(enB, 127);
-
-  // Turn on motor A & B
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
-  digitalWrite(in3, HIGH);
-  digitalWrite(in4, LOW);
-    }
+    analogValue = analogRead(lightSensorPin);
+    Serial.print("LDR sensor: "); Serial.println(analogValue); 
+    /* Get a new sensor event */ 
+    sensors_event_t event;
+    tsl.getEvent(&event);
    
-else{
-  analogWrite(enA, 0);
-  analogWrite(enB, 0);
+  
+   Serial.print(event.light); Serial.println(" lux");
+    
+  
+   if(event.light > 200){
+     analogWrite(enA, 127);
+     analogWrite(enB, 127);
 
- // Turn off motors
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, LOW);
-  digitalWrite(in3, LOW);
-  digitalWrite(in4, LOW);
-}
-
-  delay(250);
+     
+      //turn left
+      if(analogValue > 800){
+        digitalWrite(in1, HIGH);
+        digitalWrite(in2, LOW);
+        digitalWrite(in3, LOW);
+        digitalWrite(in4, LOW);
+       }
+        
+        //turn right
+      else if(analogValue < 600){
+        digitalWrite(in1, LOW);
+        digitalWrite(in2, LOW);
+        digitalWrite(in3, HIGH);
+        digitalWrite(in4, LOW);
+      }
+        
+      //walk straightforward
+      else{
+        digitalWrite(in1, HIGH);
+        digitalWrite(in2, LOW);
+        digitalWrite(in3, HIGH);
+        digitalWrite(in4, LOW);
+      }
+   }
+     
+  else{
+    analogWrite(enA, 0);
+    analogWrite(enB, 0);
+  
+    // Turn off motors
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, LOW);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, LOW);
+  }
+  
+    delay(250);
 }
