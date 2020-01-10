@@ -59,7 +59,6 @@ uint32_t read_TDI(int n){
         TDObuff |= ((uint32_t)digitalRead(TDI)<<i);
       }
     TAPclk(TMS0);
-   // TDObuff |= ((uint32_t)digitalRead(TDI)<<i);
     TAPclk(TMS0);
     TAPclk(0);
   return TDObuff;
@@ -67,15 +66,11 @@ uint32_t read_TDI(int n){
 
 uint32_t read_TDI_b(int n){
  uint32_t TDObuff=0x00;
-    for(i=0; i<(n-1); i++)
-      {
-        TAPclk(0);
-        TDObuff |= ((uint32_t)digitalRead(TDI)<<i);
-      }
-    TAPclk(TMS0);
-    TDObuff |= ((uint32_t)digitalRead(TDI)<<i);
-    TAPclk(TMS0);
-    TAPclk(0);
+ TDObuff |= ((uint32_t)digitalRead(TDI)<<i);
+
+  TAPclk(TMS0);
+  TAPclk(TMS0);
+  TAPclk(0);
   return TDObuff;
 }
 
@@ -121,7 +116,6 @@ uint32_t read_IDCODE(){
   TAPclk(0);
   TAPclk(TMS0);
   TAPclk(0);
- // TAPclk(0);
 
   return read_TDI(32);
 }
