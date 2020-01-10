@@ -17,12 +17,14 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
   
   Esta função permite tambem colocar bits no registo de dados e de Instruction Register, se a state machine estiver no estado shift DR ou shift IR respetivamente
 
+  **NOTA:** sempre que este pedaço de código está presente nas funções
   >
     TAPclk(TMS0);
     TAPclk(TMS0);
     TAPclk(0);
   >
-  este pedaço de código faz com que estado final da maquina de estados após qualquer função, seja sempre **run test idle**
+  
+  faz com que o estado final da máquina de estados após qualquer função, seja sempre **run test idle**
   
   
   ### read_TDI(int n)
