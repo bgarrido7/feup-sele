@@ -69,7 +69,7 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
   
   ### print_button_state()
   
-   Usada para colocar o Instruction Register a 0010 (instrução correspondente ao SAMPLE AND PREHOLD, de modo a poder aceder aos valores internos). 
+   Usada para colocar o Instruction Register a 0010 (instrução correspondente ao SAMPLE/PRELOAD, de modo a poder aceder aos valores internos). 
    No data register, lê o 4º bit que corresponde ao estado do botão, segundo o BSDL
    
   ### write_led1
