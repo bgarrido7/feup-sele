@@ -5,7 +5,7 @@
 
 as seguintes funções são usadas para seguir a lógia da seguinte máquina de estados:
 
-**TAP state machine**
+**TAP state machine:**
 
 
 <img src="https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/JTAG_T4B10/images/state_macine.gif">
