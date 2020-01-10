@@ -1,4 +1,7 @@
-# Sync
+# SYNCHRONOUS COMMUNICATION USING I2C AND TSL2561
+
+
+## Software
 
 
 ## Hardware
@@ -10,3 +13,7 @@
 **Bottom Side**
 
 <img src=https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/sync_t4_b10/images/pcb_top.png width=500>
+
+**Schematic**
+
+<img src=https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/sync_t4_b10/images/schematic.png width=500>
