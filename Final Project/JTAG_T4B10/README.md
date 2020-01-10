@@ -76,6 +76,9 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
     
    ### loop()
     
-   Onde são lidos os comandos e executadas as funções, infinitamente
-    
+Dependendo dos comandos inseridos pelo utilizados, o código faz o seguinte:
+  * **d:** imprime o IDCODE do PIC32 em binário e em hexadecimal
+  * **b:**  imprime o estado do botão connetado ao pino 29 do ChipKIT.
+  * **1:** liga o LED D5 da placa ChipKIT
+  * **0:** desliga o LED D5 da placa ChipKIT
     
