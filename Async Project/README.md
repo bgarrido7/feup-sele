@@ -57,7 +57,7 @@ Development of an asynchronous communication system composed by several nodes (a
 
 ## PCB Layout
 
-<img src=https://github.com/bgarrido7/feup-sele/blob/master/Async%20Project/asynch9_T4B10/images/pcb.png width="400">
+<img src=https://github.com/bgarrido7/feup-sele/blob/master/Async%20Project/asynch9_T4B10/images/pcb.png width="500">
   
 
 ## Authors
