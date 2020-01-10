@@ -18,8 +18,8 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
 
   ### read_TDI(int n)
     
-    Utilizando a função TAPclk(), coloca a zero o valor do data register, de modo a obter no TDI (do arduino) o número de valroes que se pretende ler.
-    Uma vez que o primeiro bit recebido é o LSB, é necessário inverter os valores obtidos.
+   Utilizando a função TAPclk(), coloca a zero o valor do data register, de modo a obter no TDI (do arduino) o número de valroes que se pretende ler.
+   Uma vez que o primeiro bit recebido é o LSB, é necessário inverter os valores obtidos.
     
 ### read_TDI_b() 
   
@@ -51,15 +51,15 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
    No data register, lê o 4º bit que corresponde ao estado do botão, segundo o  BSDL
    
   ### write_led1
-    Usada colocar o Instruction Register a 0110 (instrução correspondente ao sextest, de modo a opder interferir com o boundary scan sem mudar variáveis internas do circuito integrado). 
+   Usada colocar o Instruction Register a 0110 (instrução correspondente ao sextest, de modo a opder interferir com o boundary scan sem mudar variáveis internas do circuito integrado). 
     
-    No Data Register, as posições 19, 20 e 129 são colocadas a 1 para que o led seja definido como ligado no output. A posições 129 tem este valor para evitar ativar o reset
+   No Data Register, as posições 19, 20 e 129 são colocadas a 1 para que o led seja definido como ligado no output. A posições 129 tem este valor para evitar ativar o reset
     
    ### write_led0
    
    Semelhante ao write_led1 mas o valor do led é definido como 0
     
-    ### loop()
+   ### loop()
     
       Onde são lidos os comandos e executadas as funções, infinitamente
     
