@@ -13,7 +13,7 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
 
 ### TAPclk(int value)
 
-  Dependendo do valor de **value**, envia combinações diferentes de TMS e TDO (TDI do JTAG a ser testado).
+  Dependendo do valor de entrada, envia combinações diferentes de TMS e TDO (TDI do JTAG a ser testado).
   juntamente com um clock, avançando para o estado seguinte da TAP state machine.
   
   Esta função permite tambem colocar bits no registo de dados e de IR se a state machine estiver no estado data shift ou IR shift
