@@ -66,8 +66,8 @@ uint32_t read_TDI(int n){
 
 uint32_t read_TDI_b(){
   char TDObuff;
-  TAPclk(TMS0);
-  TDObuff = (digitalRead(TDI));
+  
+  TDObuff = digitalRead(TDI);
 
   TAPclk(TMS0);
   TAPclk(TMS0);
