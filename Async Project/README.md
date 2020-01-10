@@ -53,11 +53,11 @@ Development of an asynchronous communication system composed by several nodes (a
       
   - for the slave:
   
-    turn on the LED if the correct data is sent. Therwise, turns off the LED and ends its receiveing mode
+    turn on the LED if the correct data is sent. Otherwise, turns off the LED and ends its receiveing mode
 
 ## PCB Layout
 
-<img src=https://github.com/bgarrido7/feup-sele/blob/master/Async%20Project/asynch9_T4B10/images/pcb.png width="400">
+<img src=https://github.com/bgarrido7/feup-sele/blob/master/Async%20Project/asynch9_T4B10/images/pcb.png width="800">
   
 
 ## Authors
