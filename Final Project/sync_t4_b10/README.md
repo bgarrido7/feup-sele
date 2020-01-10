@@ -17,11 +17,7 @@ code files:
 
 ## Hardware
 
-**Top side**
-
-<img src=https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/sync_t4_b10/images/pcb_bottom.png width=500>
-
-**Bottom Side**
+**PCB**
 
 <img src=https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/sync_t4_b10/images/pcb_top.png width=500>
 
