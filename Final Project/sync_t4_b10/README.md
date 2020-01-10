@@ -4,9 +4,9 @@
 ## Software
 
 code files:
-  - [main.cpp](#main.cpp)
-  - [TSL2561.cpp](TSL2561.cpp)
-  - [TSL2561.h](TSL2561.h)
+  - main.cpp
+  - TSL2561.cpp
+  - TSL2561.h
   
 #### main.cpp
 
