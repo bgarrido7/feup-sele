@@ -16,21 +16,6 @@ int enB = 3;
 int in3 = 5;
 int in4 = 4;
 
-void displaySensorDetails(void)
-{
-  sensor_t sensor;
-  tsl.getSensor(&sensor);
-  Serial.println("------------------------------------");
-  Serial.print  ("Sensor:       "); Serial.println(sensor.name);
-  Serial.print  ("Driver Ver:   "); Serial.println(sensor.version);
-  Serial.print  ("Unique ID:    "); Serial.println(sensor.sensor_id);
-  Serial.print  ("Max Value:    "); Serial.print(sensor.max_value); Serial.println(" lux");
-  Serial.print  ("Min Value:    "); Serial.print(sensor.min_value); Serial.println(" lux");
-  Serial.print  ("Resolution:   "); Serial.print(sensor.resolution); Serial.println(" lux");  
-  Serial.println("------------------------------------");
-  Serial.println("");
-  delay(500);
-}
 
 void configureSensor(void)
 {
@@ -75,9 +60,6 @@ void setup(void)
     Serial.print("Ooops, no TSL2561 detected ... Check your wiring or I2C ADDR!");
     while(1);
   }
-  
-  /* Display some basic information on this sensor */
-  displaySensorDetails();
   
   /* Setup the sensor gain and integration time */
   configureSensor();
