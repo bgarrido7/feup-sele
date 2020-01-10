@@ -12,6 +12,8 @@
   
 ## Software
 
+Here are the functions used in the implementation
+
 ### asynch9_init(long BAUD)
 
   - configure the BAUD rate
