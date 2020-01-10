@@ -17,10 +17,20 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
   
   Esta função permite tambem colocar bits no registo de dados e de Instruction Register, se a state machine estiver no estado shift DR ou shift IR respetivamente
 
+  >
+    TAPclk(TMS0);
+    TAPclk(TMS0);
+    TAPclk(0);
+  >
+  este pedaço de código faz com que estado final da maquina de estados após qualquer função, seja sempre **run test idle**
+  
+  
   ### read_TDI(int n)
     
    Utilizando a função TAPclk(), coloca a zero o valor do data register, de modo a obter no TDI (do arduino) o valor que se pretende ler.
    Uma vez que o primeiro bit recebido é o LSB, é necessário inverter os valores obtidos.
+   
+   
     
 ### read_TDI_b() 
   
