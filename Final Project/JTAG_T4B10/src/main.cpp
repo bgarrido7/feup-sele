@@ -65,8 +65,9 @@ uint32_t read_TDI(int n){
 }
 
 uint32_t read_TDI_b(){
- uint32_t TDObuff=0x00;
- TDObuff |= ((uint32_t)digitalRead(TDI)<<i);
+  char TDObuff;
+  TAPclk(TMS0);
+  TDObuff = (digitalRead(TDI));
 
   TAPclk(TMS0);
   TAPclk(TMS0);
