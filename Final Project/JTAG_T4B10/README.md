@@ -7,20 +7,19 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
 
 **TAP state machine:**
 
-
 <img src="https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/JTAG_T4B10/images/state_macine.gif">
 
 
 ### TAPclk(int value)
 
   Dependendo do valor de entrada, envia combinações diferentes de TMS e TDO (TDI do JTAG a ser testado).
-  juntamente com um clock, avançando para o estado seguinte da TAP state machine.
+  Juntamente com um sinal de clock, avançando para o estado seguinte da TAP state machine.
   
-  Esta função permite tambem colocar bits no registo de dados e de IR se a state machine estiver no estado data shift ou IR shift
+  Esta função permite tambem colocar bits no registo de dados e de Instruction Register, se a state machine estiver no estado shift DR ou shift IR respetivamente
 
   ### read_TDI(int n)
     
-   Utilizando a função TAPclk(), coloca a zero o valor do data register, de modo a obter no TDI (do arduino) o número de valroes que se pretende ler.
+   Utilizando a função TAPclk(), coloca a zero o valor do data register, de modo a obter no TDI (do arduino) o valor que se pretende ler.
    Uma vez que o primeiro bit recebido é o LSB, é necessário inverter os valores obtidos.
     
 ### read_TDI_b() 
@@ -29,37 +28,39 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
    
 ### test_reset()
 
-  Insere o valor de "1" no TMS, durante 5 ciclos de relógio consequentes. Isto para colocar a TAP state machine no estado test reset
+  Coloca a 1 o TMS, durante 5 ciclos de relógio consequentes. Isto para colocar a TAP state machine no estado test reset
   
  ### setup()
   
-  Aqui são definidoes os inputs e output do arduino, coloca em test reset os registos e as instruções
+  Aqui são definidoes os inputs e output do arduino, e coloca em test reset os registos e as instruções
   
 ### shift_IR()
 
-  A partir do estado test reset, update IR ou update DR, a state machine transita para o estado shift IR
+  A state machine transita para o estado shift IR, a partir do estado test reset, update IR ou update DR
   
  ### read_IDCODE()
 
-  Usada colocar o Instruction Register a 0001 (instrução correspondente ao IDCODE). É também feita a leitura do IDCODE no shift DR
+  Usada para colocar o Instruction Register a 0001 (instrução correspondente ao IDCODE). 
+  
+  No estado shift DR, é feita a leitura do IDCODE
   
   ### shift_DR()
   
-  A partir do estado test reset, update IR ou update DR, a state machine transita para o estado shift DR 
+  A state machine transita para o estado shift DR, a partir do estado test reset, update IR ou update DR
   
   ### print_button_state()
   
-   Usada colocar o Instruction Register a 0010 (instrução correspondente ao sample and prehold, de modo a poder aceder aos valores internos). 
-   No data register, lê o 4º bit que corresponde ao estado do botão, segundo o  BSDL
+   Usada para colocar o Instruction Register a 0010 (instrução correspondente ao SAMPLE AND PREHOLD, de modo a poder aceder aos valores internos). 
+   No data register, lê o 4º bit que corresponde ao estado do botão, segundo o BSDL
    
   ### write_led1
-   Usada colocar o Instruction Register a 0110 (instrução correspondente ao sextest, de modo a opder interferir com o boundary scan sem mudar variáveis internas do circuito integrado). 
+   Usada para colocar o Instruction Register a 0110 (instrução correspondente ao EXTEST, de modo a poder interferir com o boundary scan sem mudar variáveis internas do circuito integrado). 
     
-   No Data Register, as posições 19, 20 e 129 são colocadas a 1 para que o led seja definido como ligado no output. A posições 129 tem este valor para evitar ativar o reset
+   No Data Register, as posições 19, 20 e 129 são colocadas a 1 para que o output do led seja definido como ligado. A posições 129 tem este valor para evitar ativar o reset
     
    ### write_led0
    
-   Semelhante ao write_led1 mas o valor do led é definido como 0
+   Semelhante ao write_led1() mas o valor do led é definido como 0, ou seja, desligado
     
    ### loop()
     
