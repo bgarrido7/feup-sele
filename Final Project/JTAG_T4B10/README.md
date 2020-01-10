@@ -9,9 +9,9 @@ O JTAG é controlado pela seguinte máquina de estados:
 
 <img src="https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/JTAG_T4B10/images/state_macine.gif">
 
-
 Esta tem como entradas o TMS e o TDI que, juntamente com um sinal de clock, fazem a transição de estado.
-Depedendo do estado, serão realizadas instruções que irão escrever o valor correto em TDI
+
+Depedendo do estado em que se encontra, serão realizadas instruções que irão escrever o valor correto em TDI
 
 ## Funções implementadas
 
