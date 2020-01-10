@@ -16,9 +16,9 @@ Depedendo do estado em que se encontra, serão realizadas instruções que irão
 
 existem 3 instruções utilizadas neste código:
 
-  * *SAMPLE/PRELOAD:* de modo a poder aceder aos valores internos
-  * *EXTEST:* de modo a poder interferir com o boundary scan sem mudar variáveis internas do circuito integrado
-  * *IDCODE:* coloca no Data Register o valor do ID CODE
+  * ***SAMPLE/PRELOAD:***  de modo a poder aceder aos valores internos do circuito integrado
+  * ***EXTEST:***  de modo a poder interferir com o boundary scan sem mudar variáveis internas do circuito integrado
+  * ***IDCODE:***  coloca no Data Register o valor do ID CODE
 
 ### TAPclk(int value)
 
