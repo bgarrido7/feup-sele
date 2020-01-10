@@ -17,7 +17,7 @@ Esta tem como entradas o TMS e o TDI que, juntamente com um sinal de clock, faze
 
 Depedendo do estado em que se encontra, serão realizadas instruções que irão escrever o valor correto em TDI
 
-Os sinais TDI e TDO correspondem às seguintes ligações físicas nos circuitos integrados:
+Os sinais TDI e TDO estão ligados fisicamente da seguinte maneira:
 
 | Arduino  |  PIC32  |
 | -------- | ------- |
