@@ -6,6 +6,8 @@
 as seguintes funções são usadas para seguir a lógia da seguinte máquina de estados:
 
 **TAP state machine**
+
+
 <img src="https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/JTAG_T4B10/images/state_macine.gif">
 
 
@@ -61,6 +63,6 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
     
    ### loop()
     
-      Onde são lidos os comandos e executadas as funções, infinitamente
+   Onde são lidos os comandos e executadas as funções, infinitamente
     
     
