@@ -12,6 +12,16 @@ Esta tem como entradas o TMS e o TDI que, juntamente com um sinal de clock, faze
 
 Depedendo do estado em que se encontra, serão realizadas instruções que irão escrever o valor correto em TDI
 
+Os sinais (TDI, TDO, TCK, TMS) correspondem às seguintes ligações físicas nos circuitos integrados:
+
+| Arduino  |  PIC32  |
+| -------- | ------- |
+|   TDO    |    TDI  |
+|   TDI    |    TDO  |
+
+
+o valor de TCK por sua vez, representa o clock do PIC32
+
 ## Funções implementadas
 
 existem 3 instruções utilizadas neste código:
