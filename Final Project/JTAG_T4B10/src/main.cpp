@@ -56,13 +56,13 @@ uint32_t read_TDI(int n){
     for(i=0; i<(n-1); i++)
       {
         TAPclk(0);
-        TDObuff |= (digitalRead(TDI)<<i);
+        TDObuff |= ((uint32_t)digitalRead(TDI)<<i);
       }
     TAPclk(TMS0);
-    TDObuff |= (digitalRead(TDI)<<i);
+    TDObuff |= ((uint32_t)digitalRead(TDI)<<i);
     TAPclk(TMS0);
     TAPclk(0);
-    Serial.println(TDObuff, HEX);
+   // TAPclk(0);
   return TDObuff;
 }
 void test_reset(){
@@ -78,7 +78,13 @@ void setup() {
   Serial.begin(9600);
   
   test_reset();
-    
+  Serial.println("----SELE Project----");
+  Serial.println("choose a command:");
+  Serial.println("d -> print id code");
+  Serial.println("b -> print button state");
+  Serial.println("1 -> turn on led");
+  Serial.println("0 -> turn off led");
+
 }
 
 void shift_IR(){
@@ -179,24 +185,32 @@ void write_led0(){
   TAPclk(TMS0);
   TAPclk(0);
 }
-
 void loop() {
   if (Serial.available() > 0) {
+    uint32_t test = 0x5090A053;
     char command = Serial.read();
     uint32_t tdo32;
     switch(command){
       case 'd':
         tdo32 = read_IDCODE();
+        Serial.println("supose to: ");
+        Serial.println(test, BIN);
+        Serial.println("actual result: ");
+        Serial.println(tdo32, BIN);
         Serial.println(tdo32, HEX);
         break;
       case 'b':
+        Serial.println("button state: ");
         Serial.println(print_button_state());
+
         break;
       case '1':
         write_led1();
+        Serial.println("LED ON");
         break;
       case '0': 
         write_led0();
+        Serial.println("LED OFF");
         break;
         }
     }
