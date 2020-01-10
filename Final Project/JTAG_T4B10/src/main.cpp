@@ -64,7 +64,7 @@ uint32_t read_TDI(int n){
   return TDObuff;
 }
 
-uint32_t read_TDI_b(int n){
+uint32_t read_TDI_b(){
  uint32_t TDObuff=0x00;
  TDObuff |= ((uint32_t)digitalRead(TDI)<<i);
 
@@ -142,7 +142,7 @@ int print_button_state(){
   TAPclk(0);
   TAPclk(0);
 
-return read_TDI_b(1);
+return read_TDI_b();
 
 }
 
