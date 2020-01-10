@@ -4,7 +4,6 @@
 
 O JTAG é controlado pela seguinte máquina de estados:
 
-
 **TAP state machine:**
 
 <img src="https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/JTAG_T4B10/images/state_macine.gif">
@@ -15,7 +14,11 @@ Depedendo do estado em que se encontra, serão realizadas instruções que irão
 
 ## Funções implementadas
 
-as seguintes funções são usadas para seguir a lógia da seguinte máquina de estados:
+existem 3 instruções utilizadas neste código:
+
+  * *SAMPLE/PRELOAD:* de modo a poder aceder aos valores internos
+  * *EXTEST:* de modo a poder interferir com o boundary scan sem mudar variáveis internas do circuito integrado
+  * *IDCODE:* coloca no Data Register o valor do ID CODE
 
 ### TAPclk(int value)
 
@@ -69,11 +72,12 @@ as seguintes funções são usadas para seguir a lógia da seguinte máquina de 
   
   ### print_button_state()
   
-   Usada para colocar o Instruction Register a 0010 (instrução correspondente ao SAMPLE/PRELOAD, de modo a poder aceder aos valores internos). 
+   Usada para colocar o Instruction Register a 0010 (instrução correspondente ao SAMPLE/PRELOAD). 
+   
    No data register, lê o 4º bit que corresponde ao estado do botão, segundo o BSDL
    
   ### write_led1
-   Usada para colocar o Instruction Register a 0110 (instrução correspondente ao EXTEST, de modo a poder interferir com o boundary scan sem mudar variáveis internas do circuito integrado). 
+   Usada para colocar o Instruction Register a 0110 (instrução correspondente ao EXTEST). 
     
    No Data Register, as posições 19, 20 e 129 são colocadas a 1 para que o output do led seja definido como ligado. A posições 129 tem este valor para evitar ativar o reset
     
