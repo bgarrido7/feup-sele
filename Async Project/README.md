@@ -43,7 +43,7 @@ Development of an asynchronous communication system composed by several nodes (a
     
     the following state mahcine applies:
     
-    <img src="https://github.com/bgarrido7/feup-sele/blob/master/Async%20Project/asynch9_T4B10/images/state%20machine.PNG" width=300>
+    <img src="https://github.com/bgarrido7/feup-sele/blob/master/Async%20Project/asynch9_T4B10/images/state%20machine.PNG" width=500>
     
     where:
       -  **state 0:** both LEDs off 
@@ -57,7 +57,7 @@ Development of an asynchronous communication system composed by several nodes (a
 
 ## PCB Layout
 
-<img src=https://github.com/bgarrido7/feup-sele/blob/master/Async%20Project/asynch9_T4B10/images/pcb.png width="800">
+<img src=https://github.com/bgarrido7/feup-sele/blob/master/Async%20Project/asynch9_T4B10/images/pcb.png width="400">
   
 
 ## Authors
