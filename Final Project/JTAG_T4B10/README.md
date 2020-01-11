@@ -5,7 +5,7 @@ O objetivo deste trabalho é controlar um microcontrolador PIC32, através da su
 Este controlo é feito através de comandos inseridos no computador pelo utilizador e dos sinais TMS, TCK e TDO que estão ligados aos pinos do Arduino 
 
 
-## Lógica do Programa
+## Funções Realizadas 
 
 O JTAG é controlado pela seguinte máquina de estados:
 
