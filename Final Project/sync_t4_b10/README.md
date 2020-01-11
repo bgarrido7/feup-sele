@@ -23,9 +23,14 @@ code files:
 
 ## Hardware
 
-**PCB**
+**PCB top view**
 
 <img src=https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/sync_t4_b10/images/pcb_top.png width=500>
+
+**PCB bottom view**
+
+<img src=https://github.com/bgarrido7/feup-sele/blob/master/Final%20Project/sync_t4_b10/images/pcb_bottom.png width=500>
+
 
 **Schematic**
 
