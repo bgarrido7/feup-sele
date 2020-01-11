@@ -27,7 +27,7 @@ Os sinais TDI e TDO estão ligados fisicamente da seguinte maneira:
 
 o valor de TCK por sua vez, representa o clock do PIC32
 
-## Funções implementadas
+## Instruções Usadas
 
 existem 3 instruções utilizadas neste código:
 
