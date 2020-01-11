@@ -1,6 +1,6 @@
 # JTAG
 
-O objetivo deste trabalho é controlar um microcontrolados PIC32, através da sua porta JTAG. 
+O objetivo deste trabalho é controlar um microcontrolador PIC32, através da sua porta JTAG. 
 
 Este controlo é feito através de comandos inseridos no computador pelo utilizador e dos sinais TMS, TCK e TDO que estão ligados aos pinos do Arduino 
 
